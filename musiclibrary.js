@@ -30,8 +30,12 @@ var library = {
 // p02: Other Playlist - 1 tracks
 
 var printPlaylists = function () {
-
+  for (var playlistId in library.playlists) {  // (var x in y ) value will always be y[x]
+    var playlist = library.playlists[playlistId] // we use square [] brackets to refer to get keys that we don't know the name
+  console.log(playlist.id + ": " + playlist.name + " - " + playlist.tracks.length + " tracks")
+  }
 }
+printPlaylists();
 
 
 // prints a list of all tracks, in the form:
@@ -40,9 +44,13 @@ var printPlaylists = function () {
 // t03: Four Thirty-Three by John Cage (Woodstock 1952)
 
 var printTracks = function () {
-
+ for (var allTracks in library.tracks) {  // (var x in y ) value will always be y[x]
+    var accessTracks = library.tracks[allTracks] // we use square [] brackets to refer to get keys that we don't know the name
+    console.log(accessTracks.id + ": " + accessTracks.name + accessTracks.artist + " (" + accessTracks.album + ")")
+  }
 }
 
+printTracks();
 
 // prints a list of tracks for a given playlist, in the form:
 // p01: Coding Music - 2 tracks
@@ -52,6 +60,14 @@ var printTracks = function () {
 var printPlaylist = function (playlistId) {
 
 }
+/*
+var printPlaylists = function () {
+  for (var playlistId in library.playlists) {  // (var x in y ) value will always be y[x]
+    var playlist = library.playlists[playlistId] // we use square [] brackets to refer to get keys that we don't know the name
+  }
+console.log(playlist.id + playlist.name + playlist.tracks)
+}
+*/
 
 
 // adds an existing track to an existing playlist
@@ -86,7 +102,7 @@ var addPlaylist = function (name) {
 // STRETCH:
 // given a query string string, prints a list of tracks
 // where the name, artist or album contains the query string (case insensitive)
-// tip: use "string".search("tri") 
+// tip: use "string".search("tri")
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/search
 
 var printSearchResults = function(query) {
